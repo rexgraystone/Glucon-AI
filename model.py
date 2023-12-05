@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
+import joblib
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import MultinomialNB
@@ -60,3 +60,7 @@ def run():
     plt.legend(loc='upper right', fontsize='small')
     plt.xticks(rotation=0, fontsize=5)
     plt.savefig('Images/results.png', format='png')
+
+random = RandomForestClassifier()
+model = random.fit(X_train, y_train)
+joblib.dump(model, 'model.pkl')
